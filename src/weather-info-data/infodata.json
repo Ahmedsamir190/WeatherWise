@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Egypt's climate",
+    "description": "Egypt's climate in general is a hot desert climate. It is very dry throughout the country due to the northern Mediterranean coastal winter which is in emergency situations. In addition to the rare emergency, extreme heat during the summer months is also a general feature of Egypt.",
+    "img": "/egypt.webp"
+  },
+  {
+    "id": 2,
+    "title": "Portugal climate",
+    "description": "Portugal has a generally moderate Mediterranean climate, with hot, dry summers and mild, humid winters. Temperatures vary slightly from region to region, with coastal areas being cooler and wetter than inland areas.",
+    "img": "/portugal.webp"
+  },
+  {
+    "id": 3,
+    "title": "Spain climate",
+    "description": "Spain has a generally diverse Mediterranean climate, with influences from oceanic climate in the north and continental climate in the interior.",
+    "img": "/spain.webp"
+  },
+  {
+    "id": 4,
+    "title": "Italy climate ",
+    "description": "Italy has a generally Mediterranean climate, characterized by hot, dry summers and mild, humid winters. Temperatures vary slightly from region to region, with the coastal areas of Liguria and southern Florence generally fitting into a typical Mediterranean climate, while the northern interior has a continental climate and is typically classified in the humid subtropical climate.",
+    "img": "/italy.webp"
+  },
+  {
+    "id": 5,
+    "title": "Greece climate",
+    "description": "Greece has a generally typical Mediterranean climate, with hot, dry summers and mild, wet winters. Temperatures vary slightly from region to region, with coastal areas being cooler and wetter than inland areas.",
+    "img": "/greece.webp"
+  },
+  {
+    "id": 6,
+    "title": "Croatia climate",
+    "description": "Croatia has a generally diverse Mediterranean climate, with influences from continental climate in the interior and oceanic climate along the coast.",
+    "img": "/croatia.webp"
+  },
+  {
+    "id": 7,
+    "title": "Cyprus climate",
+    "description": "Cyprus has a generally typical Mediterranean climate, with hot, dry summers and mild, humid winters.",
+    "img": "/cyprus.webp"
+  },
+  {
+    "id": 8,
+    "title": "Saudi Arabia climate  ",
+    "description": "Saudi Arabia has a generally desert-continental climate, with hot, dry summers and short, mild winters.",
+    "img": "/saudiarabia.webp"
+  },
+  {
+    "id": 9,
+    "title": "The United Arab Emirates climate",
+    "description": "The United Arab Emirates has a generally hot desert climate, with hot, dry summers and short, mild winters.",
+    "img": "/theunitedarabemirates .webp"
+  },
+  {
+    "id": 10,
+    "title": "The United States climate",
+    "description": "The United States has a variety of climates, from the cold continental climate of Alaska to the tropical climate of Hawaii.",
+    "img": "/theunitedstates.webp"
+  }
+]

@@ -2,32 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+.container {
+  padding: 0 24px;
+  margin: 0 auto;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .navbar-mobile {
+    @apply max-[991px]:absolute
+     max-[991px]:justify-center
+      max-[991px]:bg-[#8080808a] 
+      max-[991px]:left-0 
+      max-[991px]:w-full
+       max-[991px]:h-screen
+        max-[991px]:flex-wrap
+         max-[991px]:flex-col
+         max-[991px]:duration-[0.9s]
+          max-[991px]:-z-10;
   }
+}
+
+.show-navbar {
+  opacity: 1;
+  top: 0;
+}
+.page-overflow {
+  overflow-y: hidden;
+}
+/* some style change for swiper library  */
+.swiper .swiper-wrapper {
+  margin-bottom: 36px;
+}
+.swiper .swiper-pagination {
+  border-radius: 12px;
+}
+.swiper .swiper-pagination .swiper-pagination-bullet {
+  background-color: black;
+}
+.swiper .swiper-button-next::after,
+.swiper .swiper-button-prev::after {
+  font-size: 20px;
+}
+.swiper .swiper-slide {
+  display: flex;
 }
