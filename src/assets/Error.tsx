@@ -1,11 +1,8 @@
 import Image from "next/image";
 import style from "../styles/error.module.css";
-import { title } from "process";
+import { ErrorstructureProps } from "@/interface/InterFace";
 
-
-
-
-export const Errorstructure = ({ title, image }) => {
+export const Errorstructure = ({ title, image }: ErrorstructureProps) => {
   return (
     <section className={style.errorsection}>
       <div className={style.errorcontent}>

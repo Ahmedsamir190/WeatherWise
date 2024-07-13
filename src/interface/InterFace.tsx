@@ -128,3 +128,7 @@ export interface AirWindPartProps {
   state: string;
   degree: string;
 }
+export interface ErrorstructureProps {
+  title: string;
+  image: string;
+}
