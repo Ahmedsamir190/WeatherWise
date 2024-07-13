@@ -1,7 +1,11 @@
 import Footer from "./Footer";
 import NavBar from "./Navbar";
 
-function LayoutComponent(props) {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+function LayoutComponent(props: LayoutProps) {
   return (
     <>
       <NavBar />

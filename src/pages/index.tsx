@@ -9,13 +9,10 @@ import { Errorstructure } from "@/assets/Error";
 import { useWeather } from "@/context/Weathercontext";
 
 export default function Home({}) {
-  const {
-    currentWeatherData,
-    weeklyForecastData,
-    hourlyForecastData,
-    loading,
-    error,
-  } = useWeather();
+  const { loading, error } = useWeather() as {
+    loading: boolean;
+    error: Error | null;
+  };
 
   //here i used state to make condition to hidde scroll bar when user open navbar
   // const navbarvisible = useSelector((state) => state.NavbarToggle.visiblenav);

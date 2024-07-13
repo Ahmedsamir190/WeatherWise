@@ -1,5 +1,9 @@
 import Image from "next/image";
 import style from "../styles/error.module.css";
+import { title } from "process";
+
+
+
 
 export const Errorstructure = ({ title, image }) => {
   return (

@@ -11,6 +11,7 @@ import { FaTemperatureThreeQuarters, FaWind } from "react-icons/fa6";
 import { useEffect, useMemo, useState } from "react";
 import "swiper/css/pagination";
 import { useWeather } from "@/context/Weathercontext";
+import { Airconditionsitems, Weather } from "@/interface/InterFace";
 
 const daysOfWeek = [
   "Sunday",
@@ -35,7 +36,7 @@ function AirConditions() {
   let datenow = new Date().getHours();
   let dataMinutes = new Date().getMinutes();
   const [isClient, setIsClient] = useState(false);
-  const { weeklyForecastData } = useWeather();
+  const { weeklyForecastData } = useWeather() || {};
 
   // get first seven data in list
   const airdata = useMemo(
@@ -79,7 +80,7 @@ function AirConditions() {
             1200: { slidesPerView: 4, spaceBetween: 20 },
           }}
         >
-          {airdata.map((icon, index) => {
+          {airdata.map((icon: Weather, index: number) => {
             const weatherIcon = icon.weather[0].icon;
             return (
               <SwiperSlide key={index} className="flex flex-col items-center">
@@ -108,7 +109,7 @@ function AirConditions() {
         {/* number of wind  */}
         <div className="mt-6 font-bold flex flex-col gap-6">
           <h4 className="my-6">AIR CONDITIONS</h4>
-          {airwind.map((item, index) => {
+          {airwind.map((item: Airconditionsitems, index: number) => {
             let { speed } = item.wind;
             return (
               <AirWindPart

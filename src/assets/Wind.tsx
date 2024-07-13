@@ -1,4 +1,6 @@
-export const AirWindPart = ({ icon, state, degree }) => {
+import { AirWindPartProps } from "@/interface/InterFace";
+
+export const AirWindPart = ({ icon, state, degree }: AirWindPartProps) => {
   return (
     <div className="flex gap-3">
       <div>{icon}</div>

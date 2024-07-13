@@ -1,9 +1,17 @@
-// contexts/WeatherContext.js
+import {
+  WeatherContextProps,
+  WeatherProviderProps,
+} from "@/interface/InterFace";
 import { createContext, useContext, useState, useEffect } from "react";
 
-const WeatherContext = createContext();
+const WeatherContext = createContext<WeatherContextProps | undefined>(
+  undefined
+);
 
-export const WeatherProvider = ({ children, initialData = {} }) => {
+export const WeatherProvider = ({
+  children,
+  initialData = {},
+}: WeatherProviderProps) => {
   const [currentWeatherData, setCurrentWeatherData] = useState(
     initialData.currentWeatherData || null
   );
@@ -13,11 +21,11 @@ export const WeatherProvider = ({ children, initialData = {} }) => {
   const [hourlyForecastData, setHourlyForecastData] = useState(
     initialData.hourlyForecastData || null
   );
-  const [city, setCity] = useState("Cairo");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [city, setCity] = useState<string>("Cairo");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const fetchWeatherData = async (city) => {
+  const fetchWeatherData = async (city: string) => {
     setLoading(true);
     setError(null);
     try {
@@ -57,7 +65,7 @@ export const WeatherProvider = ({ children, initialData = {} }) => {
   //   }
   // };
   const handleSearch = () => {
-    let item = document.getElementById("searchinput");
+    let item = document.getElementById("searchinput") as HTMLInputElement;
     setCity(item.value);
   };
 

@@ -4,12 +4,9 @@ import { MdOutlineAssignmentInd } from "react-icons/md";
 import { FaMagnifyingGlassLocation } from "react-icons/fa6";
 import Link from "next/link";
 import { RiMenu3Fill } from "react-icons/ri";
-import { IoCloseCircleSharp } from "react-icons/io5";
-import { useDispatch, useSelector } from "react-redux";
-import { NavToggle } from "@/rtk/slice/navbarToggle";
 import { useWeather } from "@/context/Weathercontext";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function NavBar() {
   //here i make toggle for state to show or hidden nav
@@ -22,15 +19,42 @@ function NavBar() {
   let spacecondition = location.pathname === "/countrysweatherinfo" && space;
 
   const [navToggle, setNavtoggle] = useState(false);
+  const [headerbg, setHeaderBg] = useState("bg-white");
 
   let HandleToggleNav = () => {
     setNavtoggle(!navToggle);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 100) {
+        setHeaderBg("bg-transparent");
+      } else {
+        setHeaderBg("bg-white");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   // const condition = navbarvisible && "show-navbar";
-  const { currentWeatherData, city, handleSearch } = useWeather();
+  const { currentWeatherData, city, handleSearch } = useWeather() as {
+    currentWeatherData: {
+      sys: {
+        country: string;
+      };
+    };
+    city: string;
+    handleSearch: () => void;
+  };
   return (
-    <header className="py-4 px-4 border-b-2  border-gray-200 text-sky-500 fixed top-0 w-full z-10 backdrop-blur-md">
+    <header
+      className={`${headerbg} py-4 px-4 border-b-2 border-gray-200 text-sky-500 fixed top-0 w-full z-10 backdrop-blur-md`}
+    >
       {/* here parent div for all  */}
       <div className="flex justify-between items-center">
         {/* part one - logo */}
@@ -91,7 +115,7 @@ function NavBar() {
                 onClick={() => setNavtoggle(false)}
               >
                 <MdOutlineAssignmentInd />
-                Explore the country's weather
+                Explore the countrys weather
               </Link>
             </div>
           </div>

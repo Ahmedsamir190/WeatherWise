@@ -1,12 +1,13 @@
 import Image from "next/image";
 import data from "../../weather-info-data/infodata.json";
 import { useEffect, useState } from "react";
+import { ChangeEvent } from "react";
 
 function CountryWeatherInfo() {
   const [countryindex, setCountryindex] = useState(0);
   const countrybyindex = data[countryindex];
 
-  const HandleCountryChange = (event) => {
+  const HandleCountryChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedcountry = event.target.value;
     const findcountry = data.find(
       (country) => country.title === selectedcountry
@@ -46,9 +47,9 @@ function CountryWeatherInfo() {
             <Image
               src={countrybyindex.img}
               alt={countrybyindex.description}
-              width={600}
-              height={300}
-              className=" rounded-3xl h-[300px]"
+              width={800}
+              height={350}
+              className=" rounded-3xl h-[350px] w-full"
             />
           </div>
           <div className="max-md:basis-full basis-2/5">
