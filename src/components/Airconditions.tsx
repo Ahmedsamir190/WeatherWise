@@ -23,11 +23,12 @@ const daysOfWeek = [
   "Saturday",
 ];
 const icons = [
-  <FaTemperatureThreeQuarters />,
-  <FaWind />,
-  <FaCloudRain />,
-  <IoSunny />,
+  <FaTemperatureThreeQuarters key="temperature" />,
+  <FaWind key="wind" />,
+  <FaCloudRain key="cloudRain" />,
+  <IoSunny key="sunny" />,
 ];
+
 const stateofair = ["Real Feel", "Wind", "Chance of rain", "UV Index"];
 const signs = ["°", "km/hr", "%", ""];
 
