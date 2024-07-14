@@ -42,7 +42,7 @@ export default function Home({}) {
             <ThreeCircles
               height="80"
               width="80"
-              color="blue"
+              color="white"
               ariaLabel="bars-loading"
               wrapperStyle={{}}
               wrapperClass=""

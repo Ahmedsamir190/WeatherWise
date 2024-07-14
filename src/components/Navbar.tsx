@@ -74,7 +74,7 @@ function NavBar() {
           aria-label="Main Navigation"
         >
           {/*part one - loactions */}
-          <div className="flex items-center gap-3 rounded-xl bg-white px-3 py-2 ">
+          <div className="flex items-center gap-3 rounded-3xl bg-white px-3 py-2 ">
             <FaMapMarkerAlt aria-label="Current Location" />
             {!city || !currentWeatherData ? (
               <p>no available loactions</p>
