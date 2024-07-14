@@ -39,19 +39,12 @@ export const WeatherProvider = ({
       );
       const weeklyForecastData = await weeklyForecastRes.json();
 
-      const hourlyForecastRes = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=e59064680b3086a97714609e0bdc3594`
-      );
-      const hourlyForecastData = await hourlyForecastRes.json();
-
       setCurrentWeatherData(currentWeatherData);
       setWeeklyForecastData(weeklyForecastData);
-      setHourlyForecastData(hourlyForecastData);
     } catch (error) {
       setError("No data found");
       setCurrentWeatherData(null);
       setWeeklyForecastData(null);
-      setHourlyForecastData(null);
     } finally {
       setLoading(false);
     }
