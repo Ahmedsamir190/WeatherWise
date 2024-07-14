@@ -3,9 +3,17 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useState } from "react";
+import {
+  AwaitedReactNode,
+  JSXElementConstructor,
+  Key,
+  ReactElement,
+  ReactNode,
+  ReactPortal,
+  useState,
+} from "react";
 import { useWeather } from "@/context/Weathercontext";
-import { WeatherData } from "@/interface/InterFace";
+import { WeatherData, WeeklyWeatherProps } from "@/interface/InterFace";
 
 const daysOfWeek = [
   "Sunday",
@@ -34,11 +42,11 @@ const monthNames = [
 function WeeklyWeather() {
   const currentDay = new Date().getDay();
   const [loading, setLoading] = useState(true);
-  const { weeklyForecastData, city, currentWeatherData } = useWeather() as {
-    weeklyForecastData: object;
-    city: string;
-    currentWeatherData: object;
-  };
+  const {
+    weeklyForecastData,
+    city,
+    currentWeatherData,
+  }: WeeklyWeatherProps | any = useWeather();
 
   // here i make sure the current day start in first of array
   const reorderedDays = [
@@ -49,46 +57,44 @@ function WeeklyWeather() {
   const firstSevenDays = weeklyForecastData.list.slice(0, 7);
 
   // here make map to enter the array (list) and catch data from (weather) and display
-  const results = firstSevenDays.map(
-    (statusOfDay: WeatherData, index: Number) => {
-      const icon = statusOfDay.weather[0].icon;
-      const minTemp = statusOfDay.main.temp_min;
-      const maxTemp = statusOfDay.main.temp_max;
-      const description = statusOfDay.weather[0].description;
+  const results = firstSevenDays.map((statusOfDay: any, index: any) => {
+    const icon = statusOfDay.weather[0].icon;
+    const minTemp = statusOfDay.main.temp_min;
+    const maxTemp = statusOfDay.main.temp_max;
+    const description = statusOfDay.weather[0].description;
 
-      const currentDate = new Date();
-      currentDate.setDate(currentDate.getDate() + index);
-      const day = currentDate.getDate();
-      const month = monthNames[currentDate.getMonth()];
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + index);
+    const day = currentDate.getDate();
+    const month = monthNames[currentDate.getMonth()];
 
-      return (
-        <SwiperSlide
-          key={index}
-          className="items-center flex-col"
-          aria-label={`Weather information for ${reorderedDays[index]}`}
-        >
-          <h3 className="font-bold" aria-labelledby={`day-${index}`}>{`${
-            index === 0 ? "Today" : ""
-          } ${reorderedDays[index].slice(0, 3)}`}</h3>
-          <span className="text-gray-400">
-            {month} {day}
-          </span>
-          <Image
-            src={`http://openweathermap.org/img/w/${icon}.png`}
-            alt={`${description} icon`}
-            width={80}
-            height={80}
-            aria-label={`${description} icon`}
-          />
-          <p className="font-bold mb-1">{description.slice(0, 8)}</p>
-          <p className="text-gray-400">
-            {minTemp.toFixed()} - {maxTemp.toFixed()}℃
-          </p>
-          <span className="text-gray-400">AQI {statusOfDay.aqinumber}</span>
-        </SwiperSlide>
-      );
-    }
-  );
+    return (
+      <SwiperSlide
+        key={index}
+        className="items-center flex-col"
+        aria-label={`Weather information for ${reorderedDays[index]}`}
+      >
+        <h3 className="font-bold" aria-labelledby={`day-${index}`}>{`${
+          index === 0 && "Today"
+        } ${reorderedDays[index].slice(0, 3)}`}</h3>
+        <span className="text-gray-400">
+          {month} {day}
+        </span>
+        <Image
+          src={`http://openweathermap.org/img/w/${icon}.png`}
+          alt={`${description} icon`}
+          width={80}
+          height={80}
+          aria-label={`${description} icon`}
+        />
+        <p className="font-bold mb-1">{description.slice(0, 8)}</p>
+        <p className="text-gray-400">
+          {minTemp.toFixed()} - {maxTemp.toFixed()}℃
+        </p>
+        <span className="text-gray-400">AQI {statusOfDay.aqinumber}</span>
+      </SwiperSlide>
+    );
+  });
 
   return (
     <section className=" shadow-section h-max text-xs bg-white p-7 rounded-3xl  col-start-9 col-end-[18] row-start-1 row-end-3 ">

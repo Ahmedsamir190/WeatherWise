@@ -11,7 +11,11 @@ import { FaTemperatureThreeQuarters, FaWind } from "react-icons/fa6";
 import { useEffect, useMemo, useState } from "react";
 import "swiper/css/pagination";
 import { useWeather } from "@/context/Weathercontext";
-import { Airconditionsitems, Weather } from "@/interface/InterFace";
+import {
+  Airconditionsitems,
+  Weather,
+  WeeklyForecastData,
+} from "@/interface/InterFace";
 
 const daysOfWeek = [
   "Sunday",
@@ -40,13 +44,13 @@ function AirConditions() {
   const { weeklyForecastData } = useWeather() || {};
 
   // get first seven data in list
-  const airdata = useMemo(
-    () => weeklyForecastData.list.slice(0, 7),
+  const airdata = useMemo<WeeklyForecastData["list"] | undefined>(
+    () => weeklyForecastData?.list?.slice(0, 7),
     [weeklyForecastData]
   );
   // get first four data in list
-  const airwind = useMemo(
-    () => weeklyForecastData.list.slice(0, 4),
+  const airwind = useMemo<WeeklyForecastData["list"] | undefined>(
+    () => weeklyForecastData?.list?.slice(0, 4),
     [weeklyForecastData]
   );
 
@@ -81,7 +85,7 @@ function AirConditions() {
             1200: { slidesPerView: 4, spaceBetween: 20 },
           }}
         >
-          {airdata.map((icon: Weather, index: number) => {
+          {airdata?.map((icon: any, index: number) => {
             const weatherIcon = icon.weather[0].icon;
             return (
               <SwiperSlide key={index} className="flex flex-col items-center">
@@ -110,7 +114,7 @@ function AirConditions() {
         {/* number of wind  */}
         <div className="mt-6 font-bold flex flex-col gap-6">
           <h4 className="my-6">AIR CONDITIONS</h4>
-          {airwind.map((item: Airconditionsitems, index: number) => {
+          {airwind?.map((item: any, index: number) => {
             let { speed } = item.wind;
             return (
               <AirWindPart

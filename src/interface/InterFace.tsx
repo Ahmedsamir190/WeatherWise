@@ -1,30 +1,5 @@
 import { ReactNode } from "react";
 
-// export interface WeatherContextProps {
-//   currentWeatherData: object;
-//   weeklyForecastData: object;
-//   hourlyForecastData: object;
-//   loading: boolean;
-//   error: string | null;
-//   fetchWeatherData: (city: string) => Promise<void>;
-//   handleSearch: () => void;
-//   city: string;
-// }
-
-// export interface WeatherProviderProps {
-//   children: ReactNode;
-
-//   initialData?: {
-//     currentWeatherData: object | undefined;
-//     weeklyForecastData: object | undefined;
-//     hourlyForecastData: object | undefined;
-//   };
-//   loading: boolean;
-//   error: string | null;
-//   fetchWeatherData: (city: string) => Promise<void>;
-//   handleSearch: () => void;
-//   city: string;
-// }
 export interface Coord {
   lon: number;
   lat: number;
@@ -65,6 +40,27 @@ export interface Sys {
   sunrise: number;
   sunset: number;
 }
+export interface List {
+  dt: number;
+  main: Main;
+  weather: Weather[];
+  clouds: Clouds;
+  wind: Wind;
+  visibility: number;
+  pop: number;
+  sys: Sys;
+  dt_txt: string;
+}
+export interface City {
+  id: number;
+  name: string;
+  coord: Coord;
+  country: string;
+  population: number;
+  timezone: number;
+  sunrise: number;
+  sunset: number;
+}
 
 export interface CurrentWeatherData {
   coord: Coord;
@@ -80,6 +76,14 @@ export interface CurrentWeatherData {
   id: number;
   name: string;
   cod: number;
+}
+
+export interface WeeklyForecastData {
+  cod: string;
+  message: number;
+  cnt: number;
+  list: List[];
+  city: City;
 }
 
 export interface WeatherProviderProps {
@@ -103,24 +107,18 @@ export interface WeatherContextProps {
 }
 
 export interface WeatherData {
+  aqinumber: number;
   cod: string;
   message: number;
   cnt: number;
-  list: WeatherItem[];
-}
-
-export interface WeeklyForecastData {}
-
-export interface HourlyForecastData {
-  // Define the structure for hourly forecast data
 }
 
 export interface Airconditionsitems {
-  wind: { speed: any };
+  wind: { speed: number };
   weather: {
     icon: string;
   }[];
-  description: any;
+  description: string;
   index: number | null | undefined;
 }
 export interface AirWindPartProps {
@@ -131,4 +129,10 @@ export interface AirWindPartProps {
 export interface ErrorstructureProps {
   title: string;
   image: string;
+}
+export interface WeeklyWeatherProps {
+  currentWeatherData: CurrentWeatherData;
+  weeklyForecastData: WeeklyForecastData;
+  list: List;
+  city: City;
 }
