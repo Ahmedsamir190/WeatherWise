@@ -7,6 +7,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { ThreeCircles } from "react-loader-spinner";
 import { Errorstructure } from "@/assets/Error";
 import { useWeather } from "@/context/Weathercontext";
+import Head from "next/head";
 
 export default function Home({}) {
   const { loading, error } = useWeather() as {
@@ -92,6 +93,19 @@ export default function Home({}) {
         cityname={city}
         userchoose={handleSearch}
       /> */}
+
+      <Head>
+        <title>Weather-Wise</title>
+        <meta charSet="UTF-8" />
+        <meta
+          name="description"
+          content="Weather-Wise website for weather info "
+        />
+        <meta name="keywords" content="Weather, Weather Wise, info" />
+        <meta name="author" content="Ahmed Samir" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <main>
         {loading ? (
