@@ -18,7 +18,7 @@ function CurrentWeather() {
   // Get the current date and time.
   const currentdate =
     GetHours < 12
-      ? `0${GetHours}:${GetMinutes} ${"AM"}`
+      ? `${GetHours}:${GetMinutes} ${"AM"}`
       : `${GetHours}:${GetMinutes} ${"PM"}`;
 
   // Set the client state when the component mounts.
@@ -40,11 +40,11 @@ function CurrentWeather() {
 
   // Render the current weather section.
   return (
-    <section className="bg-white shadow-section  h-max  px-5 py-9 rounded-2xl col-start-1 col-end-9 row-start-1 row-end-3 ">
+    <section className="bg-[#dcdcdc3d] text-white h-max  px-5 py-9 rounded-2xl col-start-1 col-end-9 row-start-1 row-end-3 ">
       <div>
         <div>
           {/* Display the current weather heading. */}
-          <h3 className="text-gray-400">Current Weather</h3>
+          <h3>Current Weather</h3>
           {/* Display the current time. */}
           <p className="translate-x-5	">{isClient && currentdate}</p>
         </div>
@@ -61,11 +61,11 @@ function CurrentWeather() {
             {` ${main.temp.toFixed()}°C `}
           </p>
           {/* Display the weather condition. */}
-          <p className="text-gray-400">{weather[0].main}</p>
+          <p>{weather[0].main}</p>
         </div>
         {/* Display the weather description. */}
         <p>
-          There will be {weather[0].description} The high will be{" "}
+          There will be {weather[0].description} The high will be
           {main.temp.toFixed()}
           °C
         </p>

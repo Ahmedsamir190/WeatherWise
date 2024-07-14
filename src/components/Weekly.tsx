@@ -75,7 +75,7 @@ function WeeklyWeather() {
         aria-label={`Weather information for ${reorderedDays[index]}`}
       >
         <h3 className="font-bold" aria-labelledby={`day-${index}`}>{`${
-          index === 0 && "Today"
+          index === 0 ? "Today" : ""
         } ${reorderedDays[index].slice(0, 3)}`}</h3>
         <span className="text-gray-400">
           {month} {day}
@@ -97,7 +97,7 @@ function WeeklyWeather() {
   });
 
   return (
-    <section className=" shadow-section h-max text-xs bg-white p-7 rounded-3xl  col-start-9 col-end-[18] row-start-1 row-end-3 ">
+    <section className=" bg-[#dcdcdc3d] text-white h-max text-xs  p-7 rounded-3xl  col-start-9 col-end-[18] row-start-1 row-end-3 ">
       {loading ? (
         <div>
           <ul className="flex gap-6 mb-4 border-b-[3px] border-gray-100">

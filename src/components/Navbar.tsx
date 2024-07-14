@@ -53,12 +53,12 @@ function NavBar() {
   };
   return (
     <header
-      className={`${headerbg} py-4 px-4 border-b-2 border-gray-200 text-sky-500 fixed top-0 w-full z-10 backdrop-blur-md`}
+      className={`bg-transparent py-3 px-4 border-b-2 border-gray-200 text-sky-500 fixed top-0 w-full z-10 backdrop-blur-md`}
     >
       {/* here parent div for all  */}
       <div className="flex justify-between items-center">
         {/* part one - logo */}
-        <div className={`${spacecondition} p-1 rounded-3xl flex gap-8 `}>
+        <div className={`${spacecondition} p-1 rounded-xl flex gap-8 bg-white`}>
           <Link href={"/"} className="flex gap-1  items-center font-black  ">
             <TiWeatherCloudy className="text-3xl" aria-label="WeatherWise" />
             WeatherWise
@@ -68,13 +68,13 @@ function NavBar() {
         <nav
           className={`flex justify-between items-center gap-5 navbar-mobile  ${
             navToggle
-              ? "max-[991px]:opacity-100 max-[991px]:top-24"
+              ? "max-[991px]:opacity-100 max-[991px]:top-[5.5rem]"
               : "max-[991px]:opacity-0 max-[991px]:top-64"
           } `}
           aria-label="Main Navigation"
         >
           {/*part one - loactions */}
-          <div className="flex items-center gap-3  rounded-3xl bg-white px-3 py-2 border border-sky-500">
+          <div className="flex items-center gap-3 rounded-xl bg-white px-3 py-2 ">
             <FaMapMarkerAlt aria-label="Current Location" />
             {!city || !currentWeatherData ? (
               <p>no available loactions</p>
@@ -86,11 +86,11 @@ function NavBar() {
           <div className="flex gap-7 items-center max-[991px]:flex-col max-[991px]:items-center max-[991px]:px-4	">
             <form
               onSubmit={(e) => e.preventDefault()}
-              className={`${inputLinkHidden} bg-white px-3 py-2 rounded-3xl flex items-center gap-1 border border-sky-500`}
+              className={`${inputLinkHidden} bg-white px-3 py-2 rounded-3xl flex items-center gap-1 `}
             >
               <input
                 type="text"
-                placeholder="Use,Protugl,ets"
+                placeholder="City,Country,Ets"
                 className="outline-none px-2 w-full"
                 aria-label="Search Input"
                 id="searchinput"
@@ -109,7 +109,7 @@ function NavBar() {
             </form>
             <div>
               <Link
-                className={`${inputLinkHidden} bg-white rounded-3xl flex gap-1 items-center  duration-[0.9s] hover:bg-blue-500 hover:text-white border border-sky-500 p-2`}
+                className={`${inputLinkHidden} bg-white rounded-3xl flex gap-1 items-center  duration-[0.9s] hover:bg-blue-500 hover:text-white p-2 capitalize`}
                 aria-label="Sign In Button"
                 href={"/countrysweatherinfo"}
                 onClick={() => setNavtoggle(false)}

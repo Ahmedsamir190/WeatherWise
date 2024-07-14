@@ -60,7 +60,7 @@ function AirConditions() {
   //get datenow and make condition
   let currentdate =
     datenow < 12
-      ? `0${datenow}:${dataMinutes} ${"AM"}`
+      ? `${datenow}:${dataMinutes} ${"AM"}`
       : `${datenow}:${dataMinutes} ${"PM"}`;
 
   //here i order days to see the current day in the first
@@ -70,7 +70,7 @@ function AirConditions() {
   );
 
   return (
-    <section className="shadow-section bg-white px-7 py-12 rounded-xl col-start-[18] col-end-[25] row-start-1 row-end-6 ">
+    <section className="bg-[#dcdcdc3d] text-white px-7 py-12 rounded-xl col-start-[18] col-end-[25] row-start-1 row-end-6 ">
       <div>
         {/* swiper for days and icons  */}
         <Swiper
