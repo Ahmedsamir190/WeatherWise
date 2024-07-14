@@ -18,9 +18,7 @@ export const WeatherProvider = ({
   const [weeklyForecastData, setWeeklyForecastData] = useState(
     initialData.weeklyForecastData || null
   );
-  const [hourlyForecastData, setHourlyForecastData] = useState(
-    initialData.hourlyForecastData || null
-  );
+
   const [city, setCity] = useState<string>("Cairo");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -78,7 +76,6 @@ export const WeatherProvider = ({
       value={{
         currentWeatherData,
         weeklyForecastData,
-        hourlyForecastData,
         fetchWeatherData,
         loading,
         error,

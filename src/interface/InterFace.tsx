@@ -91,14 +91,12 @@ export interface WeatherProviderProps {
   initialData?: {
     currentWeatherData?: CurrentWeatherData;
     weeklyForecastData?: WeeklyForecastData;
-    hourlyForecastData?: HourlyForecastData;
   };
 }
 
 export interface WeatherContextProps {
   currentWeatherData: CurrentWeatherData | null;
   weeklyForecastData: WeeklyForecastData | null;
-  hourlyForecastData: HourlyForecastData | null;
   fetchWeatherData: (city: string) => Promise<void>;
   handleSearch: () => void;
   loading: boolean;

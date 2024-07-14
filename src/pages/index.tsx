@@ -147,16 +147,11 @@ export async function getStaticProps() {
     );
     const weeklyForecastData = await weeklyForecastRes.json();
 
-    const hourlyForecastRes = await fetch(
-      "https://api.openweathermap.org/data/2.5/forecast?q=Cairo&units=metric&appid=e59064680b3086a97714609e0bdc3594"
-    );
-    const hourlyForecastData = await hourlyForecastRes.json();
     return {
       props: {
         initialData: {
           currentWeatherData,
           weeklyForecastData,
-          hourlyForecastData,
         },
       },
     };
