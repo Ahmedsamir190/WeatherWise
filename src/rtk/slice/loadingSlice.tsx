@@ -8,7 +8,7 @@ export const LoadingSlice = createSlice({
   name: "loadingSlice",
   initialState: initialstate,
   reducers: {
-    loading: (state) => {
+    loading: (state: any) => {
       state.showloader = !state.showloader;
     },
   },
