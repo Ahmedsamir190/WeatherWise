@@ -15,19 +15,6 @@ export default function Home({}) {
 
   return (
     <>
-      <Head>
-        <title>Weather-Wise</title>
-        <meta charSet="UTF-8" />
-        <meta
-          name="description"
-          content="Weather-Wise website for weather info "
-        />
-        <meta name="keywords" content="Weather, Weather Wise, info" />
-        <meta name="author" content="Ahmed Samir" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="bg">
         {loading ? (
           <div
