@@ -77,7 +77,7 @@ function WeeklyWeather() {
         <h3 className="font-bold" aria-labelledby={`day-${index}`}>{`${
           index === 0 ? "Today" : ""
         } ${reorderedDays[index].slice(0, 3)}`}</h3>
-        <span className="text-gray-400">
+        <span className="text-white">
           {month} {day}
         </span>
         <Image
@@ -88,10 +88,10 @@ function WeeklyWeather() {
           aria-label={`${description} icon`}
         />
         <p className="font-bold mb-1">{description.slice(0, 8)}</p>
-        <p className="text-gray-400">
+        <p className="text-white">
           {minTemp.toFixed()} - {maxTemp.toFixed()}℃
         </p>
-        <span className="text-gray-400">AQI {statusOfDay.aqinumber}</span>
+        <span className="text-white">AQI {statusOfDay.aqinumber}</span>
       </SwiperSlide>
     );
   });

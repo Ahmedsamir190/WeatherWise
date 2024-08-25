@@ -40,14 +40,15 @@ function HourlyCom() {
           type: "line",
           data: {
             labels: data.map((row) => row.year),
+
             datasets: [
               {
                 label: "Hourly forecast",
                 data: data.map((row) => row.count),
-                borderColor: "rgba(75, 192, 192, 1)",
+                borderColor: "white",
                 fill: false,
-                pointBackgroundColor: "rgba(75, 192, 192, 1)",
-                pointBorderColor: "rgba(75, 192, 192, 1)",
+                pointBackgroundColor: "white",
+                pointBorderColor: "white",
                 pointRadius: 5,
                 pointHoverRadius: 7,
               },
@@ -61,6 +62,9 @@ function HourlyCom() {
                 grid: {
                   display: false,
                 },
+                ticks: {
+                  color: "white",
+                },
               },
               y: {
                 beginAtZero: true,
@@ -69,6 +73,9 @@ function HourlyCom() {
                 },
                 min: 0,
                 max: 25,
+                ticks: {
+                  color: "white",
+                },
               },
             },
           },

@@ -13,7 +13,6 @@ function CurrentWeather() {
   const GetHours = new Date().getHours();
   const GetMinutes = new Date().getMinutes();
   const [isClient, setIsClient] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   // Get the current date and time.
   const currentdate =
